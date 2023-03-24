@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TheGloryCharacters</string>
+    <string name="main_title">The glory characters</string>
+    <string name="see">더 글로리 보러 가기</string>
+    <string name="character">캐릭터</string>
+    <string name="actor">배우</string>
+</resources>
