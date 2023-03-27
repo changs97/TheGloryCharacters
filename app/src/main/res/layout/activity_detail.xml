@@ -9,6 +9,7 @@
         android:layout_height="match_parent">
 
         <com.changs.theglorycharacters.ui.custom.CharacterView
+            android:layout_margin="10dp"
             android:id="@+id/detail_character"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/detail_character"

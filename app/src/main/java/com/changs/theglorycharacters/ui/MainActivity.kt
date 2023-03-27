@@ -2,12 +2,10 @@ package com.changs.theglorycharacters.ui
 
 import android.app.ActivityOptions
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.changs.theglorycharacters.R
 import com.changs.theglorycharacters.base.BaseActivity
@@ -27,6 +25,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
+        binding.homeTxtSee.setOnClickListener {
+            val uri = Uri.parse("https://www.netflix.com/kr/title/81519223?source=naver")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+        }
+
         setPager()
     }
 
@@ -43,8 +47,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), 
                 page.translationX = -pageTranslationX * position
                 page.scaleY = 1 - (0.25f * abs(position))
             }
-
-
 
             setPageTransformer(pageTransformer)
 

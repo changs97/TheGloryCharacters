@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="item"
@@ -9,10 +10,16 @@
             type="com.changs.theglorycharacters.ui.adapter.CharacterAdapter.CharacterAdapterListener" />
     </data>
 
-    <com.changs.theglorycharacters.ui.custom.CharacterView
-        android:id="@+id/character_item_view"
+    <androidx.cardview.widget.CardView
+        android:backgroundTint="@color/red"
+        app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:onClick="@{(view) -> listener.onCharacterClicked(view, item)}"
-        character="@{item}"/>
+        android:layout_height="match_parent">
+        <com.changs.theglorycharacters.ui.custom.CharacterView
+            android:id="@+id/character_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> listener.onCharacterClicked(view, item)}"
+            character="@{item}"/>
+    </androidx.cardview.widget.CardView>
 </layout>
