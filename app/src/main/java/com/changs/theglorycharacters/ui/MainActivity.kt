@@ -68,6 +68,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), 
             .makeSceneTransitionAnimation(this, view, character.id.toString())
 
         startActivity(intent, options.toBundle())
-
     }
 }

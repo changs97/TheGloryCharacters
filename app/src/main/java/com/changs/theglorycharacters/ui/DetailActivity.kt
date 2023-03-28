@@ -31,8 +31,8 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
             binding.detailTxtDescription.text = character.description
             binding.detailCharacter.apply {
                 transitionName = character.id.toString()
-                actorName.text = character.actor
-                characterName.text = character.characterName
+                setActorName(character.actor)
+                setCharacterName(character.characterName)
 
                 Glide.with(this).load(character.image).listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(

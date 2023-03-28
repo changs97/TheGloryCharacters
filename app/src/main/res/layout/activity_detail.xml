@@ -11,6 +11,8 @@
         <com.changs.theglorycharacters.ui.custom.CharacterView
             android:layout_margin="10dp"
             android:id="@+id/detail_character"
+            app:characterNameColor="@color/white"
+            app:actorNameColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"

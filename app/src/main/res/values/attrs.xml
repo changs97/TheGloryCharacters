@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CharacterView">
-        <attr name="image" format="reference|integer|string"/>
+        <attr name="image" format="reference|string"/>
         <attr name="characterName" format="reference|string" />
         <attr name="actorName" format="reference|string" />
+        <attr name="characterNameColor" format="reference|integer|color"/>
+        <attr name="actorNameColor" format="reference|integer|color"/>
     </declare-styleable>
 </resources>

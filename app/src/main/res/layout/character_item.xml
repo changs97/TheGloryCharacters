@@ -18,6 +18,8 @@
         <com.changs.theglorycharacters.ui.custom.CharacterView
             android:id="@+id/character_item_view"
             android:layout_width="match_parent"
+            app:characterNameColor="@color/white"
+            app:actorNameColor="@color/white"
             android:layout_height="wrap_content"
             android:onClick="@{(view) -> listener.onCharacterClicked(view, item)}"
             character="@{item}"/>
