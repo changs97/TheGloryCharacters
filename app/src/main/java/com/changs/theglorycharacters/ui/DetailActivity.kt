@@ -33,7 +33,6 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
                 transitionName = character.id.toString()
                 setActorName(character.actor)
                 setCharacterName(character.characterName)
-
                 Glide.with(this).load(character.image).listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,

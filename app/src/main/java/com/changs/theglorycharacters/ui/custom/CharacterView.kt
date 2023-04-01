@@ -3,8 +3,10 @@ package com.changs.theglorycharacters.ui.custom
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -26,12 +28,6 @@ class CharacterView : LinearLayout {
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
         initView()
         getAttrs(attrs)
-
-    }
-
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs) {
-        initView()
-        getAttrs(attrs, defStyle)
     }
 
     private fun initView() {
@@ -54,12 +50,6 @@ class CharacterView : LinearLayout {
         setTypeArray(typedArray)
     }
 
-    private fun getAttrs(attrs: AttributeSet?, defStyle: Int) {
-        val typedArray = context.obtainStyledAttributes(
-            attrs, R.styleable.CharacterView, defStyle, 0
-        )
-        setTypeArray(typedArray)
-    }
     @SuppressLint("ResourceAsColor")
     private fun setTypeArray(typedArray: TypedArray) {
         try {
@@ -75,43 +65,26 @@ class CharacterView : LinearLayout {
 
     fun setCharacterName(text: String?) {
         characterName.text = text
-        invalidate()
-        requestLayout()
     }
 
     fun setCharacterName(textResourceId: Int) {
         characterName.setText(textResourceId)
-        invalidate()
-        requestLayout()
     }
 
     fun setActorName(text: String?) {
         actorName.text = text
-        invalidate()
-        requestLayout()
     }
 
     fun setActorName(textResourceId: Int) {
         actorName.setText(textResourceId)
-        invalidate()
-        requestLayout()
     }
 
     fun setCharacterNameColor(color: Int) {
         characterName.setTextColor(ContextCompat.getColor(context, color))
-        invalidate()
-        requestLayout()
     }
 
     fun setActorNameColor(color: Int) {
         actorName.setTextColor(ContextCompat.getColor(context, color))
-        invalidate()
-        requestLayout()
     }
-
-    fun setImage() {
-
-    }
-
 
 }
