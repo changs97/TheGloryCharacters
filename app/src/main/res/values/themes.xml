@@ -16,11 +16,5 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@color/background</item>
-
-        <item name="android:windowActivityTransitions">true</item>
-        <item name="android:windowSharedElementEnterTransition">
-            @transition/shared_character</item>
-        <item name="android:windowSharedElementExitTransition">
-            @transition/shared_character</item>
     </style>
 </resources>

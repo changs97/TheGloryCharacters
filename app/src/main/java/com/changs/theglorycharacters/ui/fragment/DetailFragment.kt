@@ -4,6 +4,8 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.navArgs
+import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -15,17 +17,22 @@ import com.changs.theglorycharacters.data.Character
 import com.changs.theglorycharacters.databinding.FragmentDetailBinding
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_detail) {
+    private val args: DetailFragmentArgs by navArgs()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val transition = TransitionInflater.from(requireContext())
+            .inflateTransition(R.transition.shared_character)
+        sharedElementEnterTransition = transition
+        sharedElementReturnTransition = transition
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-/*        val character: Character? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra("character", Character::class.java)
-        } else {
-            intent.getParcelableExtra("character")
-        }*/
+       postponeEnterTransition()
 
-        postponeEnterTransition()
-/*
+        val character = args.character
+
         character?.let {
             binding.detailTxtDescription.text = character.description
             binding.detailCharacter.apply {
@@ -55,7 +62,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
                     }
                 }).into(image)
             }
-        }*/
+        }
     }
-
 }
