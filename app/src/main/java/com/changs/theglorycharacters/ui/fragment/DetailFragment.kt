@@ -36,7 +36,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
         character?.let {
             binding.detailTxtDescription.text = character.description
             binding.detailCharacter.apply {
-                transitionName = character.id.toString()
+                transitionName = character.characterName
                 setActorName(character.actor)
                 setCharacterName(character.characterName)
                 Glide.with(this).load(character.image).listener(object : RequestListener<Drawable> {
