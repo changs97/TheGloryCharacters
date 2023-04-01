@@ -16,56 +16,13 @@ import com.changs.theglorycharacters.viewmodel.MainViewModel
 import kotlin.math.abs
 
 
-class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), CharacterAdapter.CharacterAdapterListener {
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val viewModel : MainViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        binding.homeTxtSee.setOnClickListener {
-            val uri = Uri.parse("https://www.netflix.com/kr/title/81519223?source=naver")
-            val intent = Intent(Intent.ACTION_VIEW, uri)
-            startActivity(intent)
-        }
 
-        setPager()
-    }
-
-    private fun setPager() {
-        with(binding.homePager) {
-            adapter = CharacterAdapter(this@MainActivity)
-            offscreenPageLimit = 1
-
-            val nextItemVisiblePx = resources.getDimension(R.dimen.viewpager_next_item_visible)
-            val currentItemHorizontalMarginPx =
-                resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin)
-            val pageTranslationX = nextItemVisiblePx + currentItemHorizontalMarginPx
-            val pageTransformer = ViewPager2.PageTransformer { page: View, position: Float ->
-                page.translationX = -pageTranslationX * position
-                page.scaleY = 1 - (0.25f * abs(position))
-            }
-
-            setPageTransformer(pageTransformer)
-
-            val itemDecoration = HorizontalMarginItemDecoration(
-                this@MainActivity, R.dimen.viewpager_current_item_horizontal_margin
-            )
-
-            addItemDecoration(itemDecoration)
-        }
-    }
-
-    override fun onCharacterClicked(view: View, character: Character) {
-        view.transitionName = character.id.toString()
-
-        val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra("character", character)
-
-        val options = ActivityOptions
-            .makeSceneTransitionAnimation(this, view, character.id.toString())
-
-        startActivity(intent, options.toBundle())
     }
 }
