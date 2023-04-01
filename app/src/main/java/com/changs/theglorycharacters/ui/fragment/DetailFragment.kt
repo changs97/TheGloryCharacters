@@ -13,7 +13,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.changs.theglorycharacters.R
 import com.changs.theglorycharacters.base.BaseFragment
-import com.changs.theglorycharacters.data.Character
 import com.changs.theglorycharacters.databinding.FragmentDetailBinding
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_detail) {
@@ -24,7 +23,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
         val transition = TransitionInflater.from(requireContext())
             .inflateTransition(R.transition.shared_character)
         sharedElementEnterTransition = transition
-        sharedElementReturnTransition = transition
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
