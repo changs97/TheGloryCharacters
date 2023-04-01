@@ -12,7 +12,6 @@ import com.changs.theglorycharacters.base.BaseActivity
 import com.changs.theglorycharacters.data.Character
 import com.changs.theglorycharacters.databinding.ActivityMainBinding
 import com.changs.theglorycharacters.ui.adapter.CharacterAdapter
-import com.changs.theglorycharacters.ui.custom.HorizontalMarginItemDecoration
 import com.changs.theglorycharacters.viewmodel.MainViewModel
 import kotlin.math.abs
 
