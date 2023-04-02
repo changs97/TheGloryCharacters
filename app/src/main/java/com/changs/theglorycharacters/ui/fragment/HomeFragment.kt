@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
 
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
-
+        setPager()
 
         (view.parent as? ViewGroup)?.doOnPreDraw {
             binding.homePager.setCurrentItem(viewModel.currentItemPosition, false)
