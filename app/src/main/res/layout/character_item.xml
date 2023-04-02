@@ -22,7 +22,7 @@
             app:characterNameColor="@color/white"
             app:actorNameColor="@color/white"
             android:layout_height="wrap_content"
-            android:onClick="@{(view) -> listener.onCharacterClicked(view, item)}"
+
             character="@{item}"/>
     </androidx.cardview.widget.CardView>
 </layout>
