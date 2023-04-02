@@ -1,5 +1,7 @@
 package com.changs.theglorycharacters.ui.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +30,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         setPager()
+
+        binding.homeTxtSee.setOnClickListener {
+            val uri = Uri.parse("https://www.netflix.com/kr/title/81519223?source=naver")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+        }
 
         (view.parent as? ViewGroup)?.doOnPreDraw {
             binding.homePager.setCurrentItem(viewModel.currentItemPosition, false)
@@ -60,10 +68,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     }
 
     override fun onCharacterClicked(view: View, character: Character) {
-        view.transitionName = character.characterName
-
         val directions = HomeFragmentDirections.actionHomeFragmentToDetailFragment(character)
-        val extras = FragmentNavigatorExtras(view to character.characterName)
+        val extras = FragmentNavigatorExtras(view to view.transitionName)
 
         findNavController().navigate(
             directions,
