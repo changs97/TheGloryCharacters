@@ -13,16 +13,14 @@
     <androidx.cardview.widget.CardView
         android:backgroundTint="@color/red"
         app:cardCornerRadius="8dp"
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <com.changs.theglorycharacters.ui.custom.CharacterView
             android:id="@+id/character_item_view"
             android:layout_width="match_parent"
             app:characterNameColor="@color/white"
             app:actorNameColor="@color/white"
             android:layout_height="wrap_content"
-
             character="@{item}"/>
     </androidx.cardview.widget.CardView>
 </layout>

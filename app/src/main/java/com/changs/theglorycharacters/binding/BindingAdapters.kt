@@ -10,7 +10,7 @@ import com.changs.theglorycharacters.ui.custom.CharacterView
 
 
 @BindingAdapter("items")
-fun RecyclerView.setItems(list: List<Character>?) {
+fun ViewPager2.setItems(list: List<Character>?) {
     list ?: return
 
     adapter?.let {

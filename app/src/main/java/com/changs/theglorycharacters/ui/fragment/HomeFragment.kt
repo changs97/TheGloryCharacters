@@ -26,8 +26,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         binding.viewModel = viewModel
 
 
-        binding.homeRecycler.adapter = CharacterAdapter(this@HomeFragment)
+        binding.homePager.adapter = CharacterAdapter(this@HomeFragment)
+
         (view.parent as? ViewGroup)?.doOnPreDraw {
+            binding.homePager.setCurrentItem(viewModel.currentItemPosition, false)
             startPostponedEnterTransition()
         }
     }
@@ -43,6 +45,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
             directions,
             extras
         )
+    }
+
+    override fun onDestroyView() {
+        viewModel.currentItemPosition = binding.homePager.currentItem
+        super.onDestroyView()
     }
 
 }

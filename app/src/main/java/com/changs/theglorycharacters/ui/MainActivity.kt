@@ -24,6 +24,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-
     }
 }

@@ -10,6 +10,8 @@ class MainViewModel : ViewModel() {
     val characters: LiveData<List<Character>>
         get() = _characters
 
+    var currentItemPosition = 0
+
     init {
         _characters.value = getCharacter()
     }
