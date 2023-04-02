@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import com.changs.theglorycharacters.R
 
 
+// 개선하기
 class CharacterView : LinearLayout {
     lateinit var characterName: TextView
     lateinit var actorName: TextView

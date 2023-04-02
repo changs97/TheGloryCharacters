@@ -15,22 +15,10 @@ class CharacterViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     init {
-        //binding.listener = listener
+        binding.listener = listener
     }
 
     fun bind(item: Character) {
-
-        binding.characterItemView.setOnClickListener {
-
-            val directions = HomeFragmentDirections.actionHomeFragmentToDetailFragment(item)
-            val extras = FragmentNavigatorExtras(it to item.characterName)
-
-            itemView.findNavController().navigate(
-                directions,
-                extras
-            )
-        }
-        binding.characterItemView.transitionName = item.characterName
         binding.item = item
         binding.executePendingBindings()
     }

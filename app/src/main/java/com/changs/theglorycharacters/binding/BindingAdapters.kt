@@ -20,8 +20,8 @@ fun ViewPager2.setItems(list: List<Character>?) {
 
 @BindingAdapter("character")
 fun CharacterView.setCharacter(character: Character) {
-    characterName.text = character.characterName
-    actorName.text = character.actor
+    setActorName(character.actor)
+    setCharacterName(character.characterName)
 
     Glide.with(context)
         .load(character.image)

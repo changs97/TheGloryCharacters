@@ -21,7 +21,7 @@ import com.changs.theglorycharacters.viewmodel.MainViewModel
 import kotlin.math.abs
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), CharacterAdapter.CharacterAdapterListener {
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels() // 액티비티의 뷰모델을 공유하는게 좋을지 고민
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,6 +32,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         setPager()
 
         binding.homeTxtSee.setOnClickListener {
+            // 고민 후 수정
             val uri = Uri.parse("https://www.netflix.com/kr/title/81519223?source=naver")
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
@@ -46,6 +47,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     private fun setPager() {
         with(binding.homePager) {
             adapter = CharacterAdapter(this@HomeFragment)
+            // 아래 각각의 코드 설명할 수 있도록 하기
             offscreenPageLimit = 1
 
             val nextItemVisiblePx = resources.getDimension(R.dimen.viewpager_next_item_visible)
@@ -77,9 +79,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         )
     }
 
-    override fun onDestroyView() {
+    override fun onPause() {
         viewModel.currentItemPosition = binding.homePager.currentItem
-        super.onDestroyView()
+        super.onPause()
     }
 
 }

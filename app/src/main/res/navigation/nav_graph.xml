@@ -22,7 +22,6 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="character"
-            app:argType="com.changs.theglorycharacters.data.Character"
-            app:nullable="true" />
+            app:argType="com.changs.theglorycharacters.data.Character" />
     </fragment>
 </navigation>

@@ -10,12 +10,13 @@ class MainViewModel : ViewModel() {
     val characters: LiveData<List<Character>>
         get() = _characters
 
-    var currentItemPosition = 0
+    var currentItemPosition = 0 //이렇게 하면 뷰모델의 데이터를 뷰에서 마구 수정할 수 있음 어떻게 해야하나 고민
 
     init {
         _characters.value = getCharacter()
     }
 
+    // 데이터 영역에서 샘플 데이터를 가져오도록 수정
     private fun getCharacter() = arrayListOf(
         Character(
             "송혜교",
