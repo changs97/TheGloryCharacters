@@ -2,9 +2,9 @@
 <resources>
     <declare-styleable name="CharacterView">
         <attr name="image" format="reference|string"/>
-        <attr name="characterName" format="reference|string" />
-        <attr name="actorName" format="reference|string" />
-        <attr name="characterNameColor" format="reference|integer|color"/>
-        <attr name="actorNameColor" format="reference|integer|color"/>
+        <attr name="characterName" format="string" />
+        <attr name="actorName" format="string" />
+        <attr name="characterNameColor" format="color"/>
+        <attr name="actorNameColor" format="color"/>
     </declare-styleable>
 </resources>

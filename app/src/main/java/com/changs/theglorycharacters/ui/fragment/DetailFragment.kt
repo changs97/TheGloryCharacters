@@ -34,10 +34,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
     private fun setCharacter(character: Character) {
         binding.detailTxtDescription.text = character.description
         binding.detailCharacter.apply {
-            // 프래그먼트에서 하나하나 바인딩해주는게 맞는가? 데이터바인딩의 장점을 살릴 수 없을까?
             transitionName = character.characterName
             setActorName(character.actor)
             setCharacterName(character.characterName)
+
             Glide.with(this).load(character.image).listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,

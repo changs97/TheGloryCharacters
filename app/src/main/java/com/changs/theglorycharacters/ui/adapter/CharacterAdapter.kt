@@ -4,10 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.changs.theglorycharacters.viewmodel.MainViewModel
 import com.changs.theglorycharacters.data.Character
 import com.changs.theglorycharacters.databinding.CharacterItemBinding
-import com.changs.theglorycharacters.ui.custom.CharacterView
 
 class CharacterAdapter(private val listener: CharacterAdapterListener) :
     RecyclerView.Adapter<CharacterViewHolder>() {

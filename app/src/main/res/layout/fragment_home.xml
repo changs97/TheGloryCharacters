@@ -5,10 +5,9 @@
     tools:context=".ui.fragment.HomeFragment">
 
     <data>
-
         <variable
             name="viewModel"
-            type="com.changs.theglorycharacters.viewmodel.MainViewModel" />
+            type="com.changs.theglorycharacters.viewmodel.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
