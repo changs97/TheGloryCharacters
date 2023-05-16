@@ -9,7 +9,7 @@ import com.changs.theglorycharacters.ui.custom.CharacterView
 
 
 class MainActivity : AppCompatActivity() {
-    private val binding = ActivityMainBinding.inflate(layoutInflater)
+    private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
