@@ -18,7 +18,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.lifecycleOwner = this
-        Timber.tag("test").d(layoutInflater.toString())
-        Timber.tag("test").d((this as Context).toString())
     }
 }
