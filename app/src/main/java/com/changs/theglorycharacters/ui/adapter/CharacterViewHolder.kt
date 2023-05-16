@@ -19,5 +19,6 @@ class CharacterViewHolder(
     fun bind(item: Character) {
         binding.item = item
         binding.executePendingBindings()
+        // https://stackoverflow.com/questions/53043412/android-why-use-executependingbindings-in-recyclerview
     }
 }
