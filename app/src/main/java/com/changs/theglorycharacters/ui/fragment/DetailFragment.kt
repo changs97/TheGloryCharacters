@@ -35,10 +35,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
         binding.detailTxtDescription.text = character.description
         binding.detailCharacter.apply {
             transitionName = character.characterName
-            setActorName(character.actor)
-            setCharacterName(character.characterName)
+            actorNameText = character.actor
+            characterNameText = character.characterName
 
-            Glide.with(this).load(character.image).listener(object : RequestListener<Drawable> {
+            setCharacterImage(character.image, object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
                     model: Any?,
@@ -59,7 +59,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
                     startPostponedEnterTransition()
                     return false
                 }
-            }).into(image)
+            })
         }
     }
 }

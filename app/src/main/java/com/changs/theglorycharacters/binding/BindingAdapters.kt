@@ -14,19 +14,15 @@ fun ViewPager2.setItems(list: List<Character>?) {
     list ?: return
 
     adapter?.let {
-        (it as CharacterAdapter).setCharacterList(list)
+        (it as CharacterAdapter).submitList(list)
     }
 }
 
 @BindingAdapter("character")
 fun CharacterView.setCharacter(character: Character) {
-    setActorName(character.actor)
-    setCharacterName(character.characterName)
-
-    Glide.with(context)
-        .load(character.image)
-        .fitCenter()
-        .into(image)
+    actorNameText = character.actor
+    characterNameText = character.characterName
+    setCharacterImage(character.image)
 }
 
 

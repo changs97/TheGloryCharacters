@@ -1,15 +1,12 @@
 package com.changs.theglorycharacters.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.changs.theglorycharacters.data.Character
 import com.changs.theglorycharacters.data.SampleData
 
 class HomeViewModel : ViewModel() {
     private val _characters = MutableLiveData<List<Character>>()
-    val characters: LiveData<List<Character>>
-        get() = _characters
+    val characters: LiveData<List<Character>> get() = _characters
 
     var currentItemPosition = 0
 

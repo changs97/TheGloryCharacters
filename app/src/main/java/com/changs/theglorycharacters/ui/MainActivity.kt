@@ -1,8 +1,11 @@
 package com.changs.theglorycharacters.ui
 
 import android.os.Bundle
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.changs.theglorycharacters.R
 import com.changs.theglorycharacters.databinding.ActivityMainBinding
+import com.changs.theglorycharacters.ui.custom.CharacterView
 
 
 class MainActivity : AppCompatActivity() {

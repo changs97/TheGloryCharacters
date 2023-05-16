@@ -1,26 +1,13 @@
 package com.changs.theglorycharacters.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
 import com.changs.theglorycharacters.data.Character
 import com.changs.theglorycharacters.databinding.CharacterItemBinding
 
 class CharacterAdapter(private val listener: CharacterAdapterListener) :
-    RecyclerView.Adapter<CharacterViewHolder>() {
-    private val characters = ArrayList<Character>()
-    interface CharacterAdapterListener {
-        fun onCharacterClicked(view: View, character: Character)
-    }
-    fun setCharacterList(items: List<Character>) {
-        characters.run {
-            clear()
-            addAll(items)
-        }
-        notifyDataSetChanged()
-    }
-
+    ListAdapter<Character, CharacterViewHolder>(DiffUtilCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         val binding =
             CharacterItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -28,8 +15,8 @@ class CharacterAdapter(private val listener: CharacterAdapterListener) :
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(characters[position])
+        holder.bind(currentList[position])
     }
-
-    override fun getItemCount() = characters.size
 }
+
+
