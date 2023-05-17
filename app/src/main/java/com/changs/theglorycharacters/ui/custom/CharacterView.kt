@@ -48,51 +48,29 @@ class CharacterView @JvmOverloads constructor(
         setCharacterImage(typedArray.getDrawable(R.styleable.CharacterView_image))
     }
 
-    var characterNameText: String = binding.characterViewTxtCharacterName.text.toString()
+    var characterNameText: String
         get() = binding.characterViewTxtCharacterName.text.toString()
         set(value) {
-            field = value
             binding.characterViewTxtCharacterName.text = value
         }
 
-    var actorNameText: String = binding.characterViewTxtActorName.text.toString()
+    var actorNameText: String
         get() = binding.characterViewTxtActorName.text.toString()
         set(value) {
-            field = value
             binding.characterViewTxtActorName.text = value
         }
 
-    var characterNameTextColor: Int = binding.characterViewTxtCharacterName.currentTextColor
+    var characterNameTextColor: Int
         get() = binding.characterViewTxtCharacterName.currentTextColor
         set(value) {
-            field = value
             binding.characterViewTxtCharacterName.setTextColor(value)
         }
 
-    var actorNameTextColor: Int = binding.characterViewTxtActorName.currentTextColor
+    var actorNameTextColor: Int
         get() = binding.characterViewTxtActorName.currentTextColor
         set(value) {
-            field = value
             binding.characterViewTxtActorName.setTextColor(value)
         }
-
-/*
-    fun setCharacterName(text: String?) {
-        characterName.text = text
-    }
-
-    fun setActorName(text: String?) {
-        actorName.text = text
-    }
-
-    fun setCharacterNameColor(color: Int) {
-        characterName.setTextColor(color)
-    }
-
-    fun setActorNameColor(color: Int) {
-        actorName.setTextColor(color)
-    }
-*/
 
     fun setCharacterImage(img: Drawable?, listener: RequestListener<Drawable>? = null) {
         if (listener == null) Glide.with(context).load(img).fitCenter()
