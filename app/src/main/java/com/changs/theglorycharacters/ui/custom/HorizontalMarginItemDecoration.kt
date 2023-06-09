@@ -3,10 +3,9 @@ package com.changs.theglorycharacters.ui.custom
 import android.content.Context
 import android.graphics.Rect
 import android.view.View
-import androidx.annotation.DimenRes
 import androidx.recyclerview.widget.RecyclerView
 
-class HorizontalMarginItemDecoration(context: Context, @DimenRes horizontalMarginInDp: Int) :
+class HorizontalMarginItemDecoration(context: Context, horizontalMarginInDp: Int) :
     RecyclerView.ItemDecoration() {
 
     private val horizontalMarginInPx: Int =

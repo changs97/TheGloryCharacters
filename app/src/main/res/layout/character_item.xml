@@ -7,7 +7,7 @@
             type="com.changs.theglorycharacters.data.Character" />
         <variable
             name="listener"
-            type="com.changs.theglorycharacters.ui.adapter.CharacterAdapter.CharacterAdapterListener" />
+            type="com.changs.theglorycharacters.ui.adapter.CharacterAdapterListener" />
     </data>
 
     <androidx.cardview.widget.CardView

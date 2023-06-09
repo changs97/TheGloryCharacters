@@ -1,18 +1,19 @@
 package com.changs.theglorycharacters.ui.adapter
 
 
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.changs.theglorycharacters.databinding.CharacterItemBinding
+import com.changs.theglorycharacters.R
 import com.changs.theglorycharacters.data.Character
-import com.changs.theglorycharacters.ui.fragment.HomeFragmentDirections
-
+import com.changs.theglorycharacters.databinding.CharacterItemBinding
 
 class CharacterViewHolder(
-    private val binding: CharacterItemBinding, listener: CharacterAdapter.CharacterAdapterListener
-) : RecyclerView.ViewHolder(binding.root) {
+    parent: ViewGroup, listener: CharacterAdapterListener
+) : RecyclerView.ViewHolder(
+    LayoutInflater.from(parent.context).inflate(R.layout.character_item, parent, false)
+) {
+    private val binding = CharacterItemBinding.bind(itemView)
 
     init {
         binding.listener = listener

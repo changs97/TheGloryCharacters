@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -35,10 +34,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
         binding.detailTxtDescription.text = character.description
         binding.detailCharacter.apply {
             transitionName = character.characterName
-            setActorName(character.actor)
-            setCharacterName(character.characterName)
+            actorNameText = character.actor
+            characterNameText = character.characterName
 
-            Glide.with(this).load(character.image).listener(object : RequestListener<Drawable> {
+            setCharacterImage(character.image, object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
                     model: Any?,
@@ -59,7 +58,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
                     startPostponedEnterTransition()
                     return false
                 }
-            }).into(image)
+            })
         }
     }
 }

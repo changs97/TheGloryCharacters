@@ -1,35 +1,27 @@
 package com.changs.theglorycharacters.ui.adapter
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.changs.theglorycharacters.data.Character
-import com.changs.theglorycharacters.databinding.CharacterItemBinding
 
 class CharacterAdapter(private val listener: CharacterAdapterListener) :
-    RecyclerView.Adapter<CharacterViewHolder>() {
-    private val characters = ArrayList<Character>()
-    interface CharacterAdapterListener {
-        fun onCharacterClicked(view: View, character: Character)
-    }
-    fun setCharacterList(items: List<Character>) {
-        characters.run {
-            clear()
-            addAll(items)
+    ListAdapter<Character, CharacterViewHolder>(object : DiffUtil.ItemCallback<Character>() {
+        override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
+            return oldItem.id == newItem.id
         }
-        notifyDataSetChanged()
-    }
 
+        override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
+            return oldItem == newItem
+        }
+    }) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val binding =
-            CharacterItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CharacterViewHolder(binding, listener)
+        return CharacterViewHolder(parent, listener)
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(characters[position])
+        holder.bind(currentList[position])
     }
-
-    override fun getItemCount() = characters.size
 }
+
+
